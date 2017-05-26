@@ -86,7 +86,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
         ledsRefresher = new LedsRefreshState( app);
         ledsRefresher.lightLedsStart();
         
-        setTitle( "Модуль исполнения программ автоматизации, v.1.0.0.0 (2016.09.09 13:49), (C) ФЛАВТ 2016.");
+        setTitle( "Модуль исполнения программ автоматизации, v.1.0.0.0 (2017.05.26 15:19), (C) ФЛАВТ 2017.");
         lstModel = new DefaultListModel();
         lstProgram.setModel( lstModel);
         
@@ -463,7 +463,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnTogTrace);
-        btnTogTrace.setBounds(480, 850, 40, 28);
+        btnTogTrace.setBounds(480, 850, 40, 25);
 
         buttonGroup1.add(btnTogDebug);
         btnTogDebug.setText("D");
@@ -473,7 +473,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnTogDebug);
-        btnTogDebug.setBounds(530, 850, 40, 28);
+        btnTogDebug.setBounds(530, 850, 40, 25);
 
         buttonGroup1.add(btnTogInfo);
         btnTogInfo.setText("I");
@@ -483,7 +483,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnTogInfo);
-        btnTogInfo.setBounds(580, 850, 40, 28);
+        btnTogInfo.setBounds(580, 850, 40, 25);
 
         buttonGroup1.add(btnTogWarn);
         btnTogWarn.setText("W");
@@ -493,7 +493,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnTogWarn);
-        btnTogWarn.setBounds(630, 850, 40, 28);
+        btnTogWarn.setBounds(630, 850, 40, 25);
 
         buttonGroup1.add(btnTogError);
         btnTogError.setText("E");
@@ -503,7 +503,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnTogError);
-        btnTogError.setBounds(680, 850, 40, 28);
+        btnTogError.setBounds(680, 850, 40, 25);
 
         buttonGroup1.add(btnTogFatal);
         btnTogFatal.setText("F");
@@ -514,7 +514,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnTogFatal);
-        btnTogFatal.setBounds(720, 850, 40, 28);
+        btnTogFatal.setBounds(720, 850, 40, 25);
 
         pnlShowFrame.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(210, 210, 210)));
         pnlShowFrame.setMaximumSize(new java.awt.Dimension(795, 332));
@@ -535,7 +535,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(scrlBarProgram);
-        scrlBarProgram.setBounds(810, 120, 19, 330);
+        scrlBarProgram.setBounds(810, 120, 17, 330);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
