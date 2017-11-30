@@ -136,6 +136,9 @@ public class VacWaitStatementExecutorThread extends AStatementExeThread {
                     logger.warn( "Странный тип приближения к ожидаемому значению: " + m_ExeStatement.getApproximation());
             }
             
+            if( dlg.m_bSkip)
+                bWaiting = false;
+            
         }
         
         dlg.dispose();
