@@ -31,14 +31,15 @@ public class HVV_Communication_vac implements Runnable {
     public Thread m_Thread;
     boolean m_bContinue;
     
+    private int m_nReconnections;
+    public int GetReconnections() { return m_nReconnections;}
+    
     public HVV_Communication_vac( HVV_Executor app) {
         theApp = app;
-        
         m_rxtx = new TwoWaySocketServerCommVac( app);
-        
         m_Thread = null;
-        
         m_nState = STATE_DISCONNECTED;
+        m_nReconnections = -1;
     }
     
     public void start() {
@@ -131,6 +132,7 @@ public class HVV_Communication_vac implements Runnable {
             else {
                 //мы не подсоединены... подсоединяемся
                 m_nState = STATE_DISCONNECTED;
+                m_nReconnections++;
                 try {
                     m_rxtx.connect();
                 } catch( Exception ex) {

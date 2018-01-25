@@ -78,6 +78,7 @@ public class LedsRefreshState {
                     theApp.m_pMainWnd.m_lblLedHvComm.setIcon( ic);
                     theApp.m_pMainWnd.m_lblLedHvComm.setText( strState);
                 }
+                theApp.m_pMainWnd.lblReconnectionsHv.setText( "" + theApp.GetCommHv().GetReconnections());
                 
                 //VAC
                 ic = null;
@@ -114,6 +115,7 @@ public class LedsRefreshState {
                     theApp.m_pMainWnd.m_lblLedVacComm.setIcon( ic);
                     theApp.m_pMainWnd.m_lblLedVacComm.setText( strState);
                 }
+                theApp.m_pMainWnd.lblReconnectionsVac.setText( "" + theApp.GetCommVac().GetReconnections());
                 
                 
                 //POLLER
@@ -151,6 +153,7 @@ public class LedsRefreshState {
                     theApp.m_pMainWnd.m_lblLedPollerComm.setIcon( ic);
                     theApp.m_pMainWnd.m_lblLedPollerComm.setText( strState);
                 }
+                theApp.m_pMainWnd.lblReconnectionsPol.setText( "" + theApp.GetCommE2P().GetReconnections());
                 
                 
                 //ADMIN.FROM
@@ -188,6 +191,7 @@ public class LedsRefreshState {
                     theApp.m_pMainWnd.m_lblLedAdminFrom.setIcon( ic);
                     theApp.m_pMainWnd.m_lblLedAdminFrom.setText( strState);
                 }
+                theApp.m_pMainWnd.lblReconnectionsA2E.setText( "" + theApp.GetCommA2E().GetReconnections());
                 
                 
                 //ADMIN.TO
@@ -225,6 +229,7 @@ public class LedsRefreshState {
                     theApp.m_pMainWnd.m_lblLedAdminTo.setIcon( ic);
                     theApp.m_pMainWnd.m_lblLedAdminTo.setText( strState);
                 }
+                theApp.m_pMainWnd.lblReconnectionsE2A.setText( "" + theApp.GetCommE2A().GetReconnections());
                 
                 
                 //BUTTONS RUN, PAUSE, STOP

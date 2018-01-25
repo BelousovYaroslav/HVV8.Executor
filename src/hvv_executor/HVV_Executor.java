@@ -20,7 +20,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TreeMap;
 import javax.swing.JOptionPane;
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -44,6 +43,7 @@ public class HVV_Executor {
     private final HVV_Resources m_pResources;
     public HVV_Resources GetResources() { return m_pResources; }
     
+    
     private final HVV_Communication_hv m_comm_hv;
     public HVV_Communication_hv GetCommHv() { return m_comm_hv; }
     
@@ -63,7 +63,8 @@ public class HVV_Executor {
     private final HVV_Comm_client m_comm_admin_to;
     public HVV_Comm_client GetCommE2A() { return m_comm_admin_to; }
     SendCurrentStateToAdminThread m_StateInformerThread;
-            
+    
+    
     static final public int RUNNING_STATE_STOP = 1;
     static final public int RUNNING_STATE_RUN = 2;
     static final public int RUNNING_STATE_PAUSE = 3;

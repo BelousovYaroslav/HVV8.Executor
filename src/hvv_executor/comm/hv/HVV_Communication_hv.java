@@ -8,7 +8,6 @@ package hvv_executor.comm.hv;
 import hvv_executor.executors.hv.HvPingStatementExecutorThread;
 import hvv_executor.HVV_Executor;
 import static java.lang.Thread.sleep;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -34,14 +33,15 @@ public class HVV_Communication_hv implements Runnable {
     public Thread m_Thread;
     boolean m_bContinue;
     
+    private int m_nReconnections;
+    public int GetReconnections() { return m_nReconnections;}
+    
     public HVV_Communication_hv( HVV_Executor app) {
         theApp = app;
-        
         m_rxtx = new TwoWaySocketServerCommHv( app);
-        
         m_Thread = null;
-        
         m_nState = STATE_DISCONNECTED;
+        m_nReconnections = -1;
     }
     
     public void start() {
@@ -131,6 +131,7 @@ public class HVV_Communication_hv implements Runnable {
             else {
                 //мы не подсоединены... подсоединяемся
                 m_nState = STATE_DISCONNECTED;
+                m_nReconnections++;
                 try {
                     m_rxtx.connect();
                 } catch( Exception ex) {

@@ -86,7 +86,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
         ledsRefresher = new LedsRefreshState( app);
         ledsRefresher.lightLedsStart();
         
-        setTitle( "Модуль исполнения программ автоматизации, v.1.0.0.0 (2017.11.30 11:00), (C) ФЛАВТ 2017.");
+        setTitle( "Модуль исполнения программ автоматизации, (2018.01.25 16:50), (C) ФЛАВТ 2018.");
         lstModel = new DefaultListModel();
         lstProgram.setModel( lstModel);
         
@@ -321,9 +321,13 @@ public class FrmMainWindow extends javax.swing.JFrame {
         btnTogFatal = new javax.swing.JToggleButton();
         pnlShowFrame = new javax.swing.JPanel();
         scrlBarProgram = new javax.swing.JScrollBar();
+        lblReconnectionsHv = new javax.swing.JLabel();
+        lblReconnectionsE2A = new javax.swing.JLabel();
+        lblReconnectionsVac = new javax.swing.JLabel();
+        lblReconnectionsPol = new javax.swing.JLabel();
+        lblReconnectionsA2E = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(840, 2147483647));
         setMinimumSize(new java.awt.Dimension(840, 1020));
         setResizable(false);
         getContentPane().setLayout(null);
@@ -411,7 +415,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
 
         m_lblCaptionHvComm.setText("<html>Связь с модулем управления<br>высоковольтной частью</html>");
         getContentPane().add(m_lblCaptionHvComm);
-        m_lblCaptionHvComm.setBounds(540, 610, 210, 50);
+        m_lblCaptionHvComm.setBounds(570, 610, 210, 50);
 
         m_lblLedHvComm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(m_lblLedHvComm);
@@ -423,7 +427,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
 
         m_lblCaptionVacComm.setText("<html>Связь с модулем управления<br>вакуумной частью</html>");
         getContentPane().add(m_lblCaptionVacComm);
-        m_lblCaptionVacComm.setBounds(540, 660, 210, 50);
+        m_lblCaptionVacComm.setBounds(570, 660, 210, 50);
 
         m_lblLedPollerComm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(m_lblLedPollerComm);
@@ -431,7 +435,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
 
         m_lblCaptionPollerComm.setText("<html>Связь с модулем<br>сбора данных</html>");
         getContentPane().add(m_lblCaptionPollerComm);
-        m_lblCaptionPollerComm.setBounds(540, 710, 210, 50);
+        m_lblCaptionPollerComm.setBounds(570, 710, 210, 50);
 
         btnPause.setText("<html><center>Пауза</center></html>");
         btnPause.setEnabled(false);
@@ -449,7 +453,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
 
         m_lblCaptionAdminComm.setText("<html>Связь с административным<br>модулем</html>");
         getContentPane().add(m_lblCaptionAdminComm);
-        m_lblCaptionAdminComm.setBounds(540, 780, 210, 50);
+        m_lblCaptionAdminComm.setBounds(570, 780, 210, 50);
 
         m_lblLedAdminFrom.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(m_lblLedAdminFrom);
@@ -536,6 +540,36 @@ public class FrmMainWindow extends javax.swing.JFrame {
         });
         getContentPane().add(scrlBarProgram);
         scrlBarProgram.setBounds(810, 120, 17, 330);
+
+        lblReconnectionsHv.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        lblReconnectionsHv.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblReconnectionsHv.setText("-");
+        getContentPane().add(lblReconnectionsHv);
+        lblReconnectionsHv.setBounds(530, 620, 40, 30);
+
+        lblReconnectionsE2A.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        lblReconnectionsE2A.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblReconnectionsE2A.setText("-");
+        getContentPane().add(lblReconnectionsE2A);
+        lblReconnectionsE2A.setBounds(530, 810, 40, 30);
+
+        lblReconnectionsVac.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        lblReconnectionsVac.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblReconnectionsVac.setText("-");
+        getContentPane().add(lblReconnectionsVac);
+        lblReconnectionsVac.setBounds(530, 670, 40, 30);
+
+        lblReconnectionsPol.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        lblReconnectionsPol.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblReconnectionsPol.setText("-");
+        getContentPane().add(lblReconnectionsPol);
+        lblReconnectionsPol.setBounds(530, 720, 40, 30);
+
+        lblReconnectionsA2E.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        lblReconnectionsA2E.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblReconnectionsA2E.setText("-");
+        getContentPane().add(lblReconnectionsA2E);
+        lblReconnectionsA2E.setBounds(530, 770, 40, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -756,6 +790,11 @@ public class FrmMainWindow extends javax.swing.JFrame {
     public javax.swing.JLabel lblDateProgramStart;
     public javax.swing.JLabel lblDateTimeDuration;
     private javax.swing.JLabel lblProgramFilePath;
+    public javax.swing.JLabel lblReconnectionsA2E;
+    public javax.swing.JLabel lblReconnectionsE2A;
+    public javax.swing.JLabel lblReconnectionsHv;
+    public javax.swing.JLabel lblReconnectionsPol;
+    public javax.swing.JLabel lblReconnectionsVac;
     public javax.swing.JList lstProgram;
     private javax.swing.JLabel m_lblCaptionAdminComm;
     private javax.swing.JLabel m_lblCaptionHvComm;
