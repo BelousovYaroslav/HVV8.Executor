@@ -34,12 +34,16 @@ public class HVV_Communication_vac implements Runnable {
     private int m_nReconnections;
     public int GetReconnections() { return m_nReconnections;}
     
+    private int m_nPingTimeouts;
+    public int GetPingTimeouts() { return m_nPingTimeouts;}
+    
     public HVV_Communication_vac( HVV_Executor app) {
         theApp = app;
         m_rxtx = new TwoWaySocketServerCommVac( app);
         m_Thread = null;
         m_nState = STATE_DISCONNECTED;
         m_nReconnections = -1;
+        m_nPingTimeouts = 0;
     }
     
     public void start() {
@@ -85,13 +89,40 @@ public class HVV_Communication_vac implements Runnable {
                     }
                     else {
                         if( ping.GetPingOk()) {
+                            m_nPingTimeouts = 0;
                             logger.debug( "ping vac ok");
                             m_nState = STATE_CONNECTED_OK;
                         }
+                        
                         if( ping.GetPingTimeOut()) {
                             logger.warn( "ping vac timeout");
-                            m_nState = STATE_CONNECTED_IDLE;
+                            m_nPingTimeouts++;
+                            
+                            if( m_nPingTimeouts > 10) {
+                                //IDLE?
+                                m_nState = STATE_CONNECTED_IDLE;
+                            }
+                            
+                            if( m_nPingTimeouts > 20) {
+                                //BREAKUP
+                                try {
+                                    m_rxtx.disconnect();
+                                } catch( Exception ex) {
+                                    logger.warn( "Exception caught!", ex);
+                                }
+                                m_nState = STATE_DISCONNECTED;
+                                
+                                try {
+                                    Thread.sleep( 1000);
+                                } catch (InterruptedException ex) {
+                                    logger.warn( "InterruptedException caught!", ex);
+                                }
+                                
+                                continue;
+                            }
+                            
                         }
+                        
                         logger.debug( "Restarting vac ping");
                         pingThread = new Thread( ping);
                         pingThread.start();
@@ -139,13 +170,13 @@ public class HVV_Communication_vac implements Runnable {
                     logger.warn( "Exception caught!", ex);
                 }
             
-                if( m_rxtx.IsConnected() == false) {
+                if( m_rxtx.IsConnected() == false)
                     logger.warn( "Попытка соединиться неуспешна.");
-                    try {
-                        Thread.sleep( 2000);
-                    } catch (InterruptedException ex) {
-                        logger.warn( "InterruptedException caught!", ex);
-                    }
+                
+                try {
+                    Thread.sleep( 5000);
+                } catch (InterruptedException ex) {
+                    logger.warn( "InterruptedException caught!", ex);
                 }
             }
             

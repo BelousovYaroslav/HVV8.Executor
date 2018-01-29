@@ -115,7 +115,7 @@ public class LedsRefreshState {
                     theApp.m_pMainWnd.m_lblLedVacComm.setIcon( ic);
                     theApp.m_pMainWnd.m_lblLedVacComm.setText( strState);
                 }
-                theApp.m_pMainWnd.lblReconnectionsVac.setText( "" + theApp.GetCommVac().GetReconnections());
+                theApp.m_pMainWnd.lblReconnectionsVac.setText( "" + theApp.GetCommVac().GetReconnections() + " " + theApp.GetCommVac().GetPingTimeouts());
                 
                 
                 //POLLER

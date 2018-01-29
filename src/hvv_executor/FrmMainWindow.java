@@ -86,7 +86,7 @@ public class FrmMainWindow extends javax.swing.JFrame {
         ledsRefresher = new LedsRefreshState( app);
         ledsRefresher.lightLedsStart();
         
-        setTitle( "Модуль исполнения программ автоматизации, (2018.01.25 16:50), (C) ФЛАВТ 2018.");
+        setTitle( "Модуль исполнения программ автоматизации, (2018.01.29 12:30), (C) ФЛАВТ 2018.");
         lstModel = new DefaultListModel();
         lstProgram.setModel( lstModel);
         
